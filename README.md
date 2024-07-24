@@ -1,10 +1,10 @@
-# OpenResume
+# OpenResume with Gemini AI
 
-OpenResume is a powerful open-source resume builder and resume parser.
+OpenResume is a powerful open-source resume builder and resume parser. I decided it was a good starting place for an open source AI resume application!
 
-The goal of OpenResume is to provide everyone with free access to a modern professional resume design and enable anyone to apply for jobs with confidence.
+The goal of OpenResume is to provide everyone with free access to a modern professional resume design allow you to tailor that resume to the job on demand at no cost to you (outside of the Google bill).
 
-Official site: [https://open-resume.com](https://open-resume.com)
+Official site: In Progress
 
 ## ⚒️ Resume Builder
 
@@ -54,18 +54,22 @@ OpenResume is created with the NextJS web framework and follows its project stru
 
 ## 💻 Local Development
 
-### Method 1: npm
+### Method 1: Local
 
-1. Download the repo `git clone https://github.com/xitanggg/open-resume.git`
+1. Download the repo `git clone https://github.com/edygry/open-resume.git`
 2. Change the directory `cd open-resume`
 3. Install the dependency `npm install`
 4. Start a development server `npm run dev`
 5. Open your browser and visit [http://localhost:3000](http://localhost:3000) to see OpenResume live
+6. Change the directory `cd gpt-service`
+7. Install the dependencies `pipenv install`
+8. Create a .env file from the template (requires Google Gemini API key)
+8. Start a development server `pipenv run fastapi dev main.py`
 
-### Method 2: Docker
+### Method 2: DevContainer
 
-1. Download the repo `git clone https://github.com/xitanggg/open-resume.git`
+1. Download the repo `git clone https://github.com/edygry/open-resume.git`
 2. Change the directory `cd open-resume`
-3. Build the container `docker build -t open-resume .`
-4. Start the container `docker run -p 3000:3000 open-resume`
-5. Open your browser and visit [http://localhost:3000](http://localhost:3000) to see OpenResume live
+3. Open Visual Studio Code and Install the DevContainer extension `code .`
+4. Start the DevContainer `Type in Command Pallette "Rebuild and Reopen" or "Rebuild"`
+5. The GPT Service will now be running on http://localhost:8000
