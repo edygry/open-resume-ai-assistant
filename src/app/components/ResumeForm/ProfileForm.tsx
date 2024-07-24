@@ -3,6 +3,7 @@ import { Input, Textarea } from "components/ResumeForm/Form/InputGroup";
 import { useAppDispatch, useAppSelector } from "lib/redux/hooks";
 import { changeProfile, selectProfile } from "lib/redux/resumeSlice";
 import { ResumeProfile } from "lib/redux/types";
+import { StarIconButton } from "components/ResumeForm/Form/IconButton";
 
 export const ProfileForm = () => {
   const profile = useAppSelector(selectProfile);
@@ -24,6 +25,7 @@ export const ProfileForm = () => {
           value={name}
           onChange={handleProfileChange}
         />
+        <div className="relative col-span-full">
         <Textarea
           label="Objective"
           labelClassName="col-span-full"
@@ -32,6 +34,16 @@ export const ProfileForm = () => {
           value={summary}
           onChange={handleProfileChange}
         />
+              <div className="absolute left-[4.5rem] top-[0.0rem]">
+                <StarIconButton
+                  text={summary}
+                  ref_field="summary"
+
+                  setText={handleProfileChange}
+                />
+              </div>
+            </div>
+        
         <Input
           label="Email"
           labelClassName="col-span-4"

@@ -6,7 +6,46 @@ import {
   ArrowSmallDownIcon,
   TrashIcon,
   ListBulletIcon,
+  StarIcon
 } from "@heroicons/react/24/outline";
+
+export const StarIconButton = ({
+  text,
+  setText,
+  ref_field
+}: {
+  text: string;
+  setText: (field: any,value:string) => void;
+  ref_field: string;
+}) => {
+  var promptType = ''
+  const tooltipText = 'Improve with AI';
+  const onClick = async () => {
+    let new_text = await fetch(`http://localhost:8000/?q=${text}&c=${ref_field}`).then(r=>r.json()).then(j=>j.message)
+    console.log(promptType)
+    setText(ref_field, new_text);
+  };
+
+  return (
+    <div>
+    <IconButton onClick={onClick} tooltipText={tooltipText} className='bg-yellow-50'>
+      <StarIcon className="h-4 w-4 text-gray-400" aria-hidden="true" />
+      <span className="sr-only">{tooltipText}</span>
+    </IconButton>
+    <select name="cars" id="cars" onChange={e=>promptType=e.target.value}>
+      <option value="">Choose a Theme</option>
+      <option value="i">Impactful</option>
+      <option value="go">Goal-Oriented</option>
+
+
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+
+  </select>
+  <input type="text" />
+    </div>
+  );
+};
 
 export const ShowIconButton = ({
   show,
